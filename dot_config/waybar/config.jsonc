@@ -1,0 +1,53 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/mode", "sway/window"],
+  "modules-right": [
+    "tray",
+    "disk",
+    "memory",
+    "cpu",
+    "battery",
+    "network",
+    "pulseaudio",
+    "clock"
+  ],
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%)",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "disk": {
+    "format": "Disk: {used}/{total}"
+  },
+  "memory": {
+    "format": "Mem: {used}GB/{total}GB ({percentage}%)"
+  },
+  "cpu": {
+    "format": "CPU: {usage}%"
+  },
+  "battery": {
+    "format": "Battery: {capacity}%"
+  },
+  "pulseaudio": {
+    "format": "{icon} {format_source}",
+    "format-bluetooth": "{icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  }
+}
