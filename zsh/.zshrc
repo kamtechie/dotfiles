@@ -2,6 +2,8 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
+source .config/zsh/key-bindings.zsh
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/kamtechie/.zshrc'
