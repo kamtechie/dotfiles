@@ -11,9 +11,12 @@ compinit
 # End of lines added by compinstall
 eval "$(starship init zsh)"
 
-# Created by `pipx` on 2024-06-14 21:45:31
-export PATH="$PATH:/home/kamtechie/.local/bin"
+# Conditionally add pipx to PATH if it is installed
+if command -v pipx &> /dev/null; then
+  export PATH="$PATH:/home/kamtechie/.local/bin"
+fi
 
+# Conditionally load nvm if it is installed
 export NVM_DIR="$HOME/.nvm"
 if [ -d "$NVM_DIR" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
