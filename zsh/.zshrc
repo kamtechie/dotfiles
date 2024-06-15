@@ -10,6 +10,13 @@ zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
+
+# Add brew to PATH on macOS
+# This needs to be done now since Starship on Mac is installed via Homebrew
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH=/opt/homebrew/bin:$PATH
+fi
+
 # End of lines added by compinstall
 eval "$(starship init zsh)"
 
