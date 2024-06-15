@@ -108,10 +108,6 @@ bindkey -M vicmd '^[[1;5D' backward-kill-word
 bindkey -M emacs '^H' backward-kill-word
 bindkey -M viins '^H' backward-kill-word
 bindkey -M vicmd '^H' backward-kill-word
-# macOS iTerm2 (Option-Backspace)
-bindkey -M emacs '^?' backward-kill-word
-bindkey -M viins '^?' backward-kill-word
-bindkey -M vicmd '^?' backward-kill-word
 
 
 # [Ctrl-RightArrow] - move forward one word
