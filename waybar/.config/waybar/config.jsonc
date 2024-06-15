@@ -1,4 +1,6 @@
 // -*- mode: jsonc -*-
+// NOTE: whitespace in format strings matters
+
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
@@ -91,10 +93,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{capacity}% {icon} ",
+        "format-full": "{capacity}% {icon} ",
+        "format-charging": "{capacity}%  ",
+        "format-plugged": "{capacity}%  ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -105,7 +107,7 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " ({signalStrength}%)",
+        "format-wifi": "  ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "({essid}) {ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
@@ -115,7 +117,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon} ",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
