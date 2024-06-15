@@ -1,0 +1,21 @@
+live_config_reload = true
+
+import = [
+    "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
+]
+
+
+[[keyboard.bindings]]
+chars = "\u001BB"
+key    = "ArrowLeft"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001BF"
+key    = "ArrowRight"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B\u007f"
+key    = "Backspace"
+mods = "Control"
