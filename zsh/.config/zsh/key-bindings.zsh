@@ -108,19 +108,29 @@ bindkey -M vicmd '^[[1;5D' backward-kill-word
 bindkey -M emacs '^H' backward-kill-word
 bindkey -M viins '^H' backward-kill-word
 bindkey -M vicmd '^H' backward-kill-word
-bindkey -M emacs '^[^?' backward-kill-word
-bindkey -M viins '^[^?' backward-kill-word
-bindkey -M vicmd '^[^?' backward-kill-word
+# macOS iTerm2 (Option-Backspace)
+bindkey -M emacs '^?' backward-kill-word
+bindkey -M viins '^?' backward-kill-word
+bindkey -M vicmd '^?' backward-kill-word
 
 
 # [Ctrl-RightArrow] - move forward one word
 bindkey -M emacs '^[[1;5C' forward-word
 bindkey -M viins '^[[1;5C' forward-word
 bindkey -M vicmd '^[[1;5C' forward-word
+# macOS iTerm2 (Option-RightArrow)
+bindkey -M emacs '^[^[[C' forward-word 
+bindkey -M viins '^[^[[C' forward-word
+bindkey -M vicmd '^[^[[C' forward-word
+
 # [Ctrl-LeftArrow] - move backward one word
 bindkey -M emacs '^[[1;5D' backward-word
 bindkey -M viins '^[[1;5D' backward-word
 bindkey -M vicmd '^[[1;5D' backward-word
+# macOS iTerm2 (Option-LeftArrow)
+bindkey -M emacs '^[^[[D' backward-word 
+bindkey -M viins '^[^[[D' backward-word
+bindkey -M vicmd '^[^[[D' backward-word 
 
 
 bindkey '\ew' kill-region                             # [Esc-w] - Kill from the cursor to the mark
