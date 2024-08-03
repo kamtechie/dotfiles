@@ -8,8 +8,11 @@ source ~/.config/zsh/key-bindings.zsh
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 
-autoload -Uz compinit
-compinit
+# Load zsh-autocomplete on macOS
+# TODO: add path for Linux systems
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+fi
 
 # Add brew to PATH on macOS
 # This needs to be done now since Starship on Mac is installed via Homebrew
