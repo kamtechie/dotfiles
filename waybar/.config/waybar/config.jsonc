@@ -24,8 +24,8 @@
         "temperature",
         "backlight",
         "battery",
-        "clock",
-        "tray"
+        "tray",
+        "clock"
     ],
 
     "mpd": {
