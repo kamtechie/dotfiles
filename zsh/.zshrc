@@ -9,7 +9,6 @@ source ~/.config/zsh/key-bindings.zsh
 zstyle :compinstall filename '~/.zshrc'
 
 # Load zsh-autocomplete on macOS
-# TODO: add path for Linux systems
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 elif [[ "$OSTYPE" == "linux"* ]]; then
