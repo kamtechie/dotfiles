@@ -10,202 +10,184 @@
  * Imports
  * -------------------------------------------------------------------------- */
 
- @import "mocha.css";
+@import "mocha.css";
 
- /* -----------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------
   * Base styles
   * -------------------------------------------------------------------------- */
- 
- /* Reset all styles */
- * {
-   color: @lavender;
-   border: 0;
-   padding: 0;
-   margin: 0;
-   font-family: JetBrains Mono Nerd Font, Roboto, Helvetica, Arial, sans-serif;
-   font-size: 13px;
- }
- 
- window#waybar {
-   border: 0;
-   background-color: rgba(0, 0, 0, 0);
- }
- 
- /* -----------------------------------------------------------------------------
+
+/* Reset all styles */
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-family: JetBrains Mono Nerd Font, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+window#waybar {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: @lavender;
+}
+
+/* -----------------------------------------------------------------------------
   * Workspace Styles
   * -------------------------------------------------------------------------- */
- #workspaces {
-   margin: 0 8px;
-   border-style: solid;
-   background-color: @base;
-   opacity: 1;
-   border-radius: 10px;
- }
- 
- #workspaces button {
-   color: @base;
-   border-radius: 50%;
-   padding: 2px;
- }
- 
- #workspaces button:hover {
-   color: @mauve;
-   box-shadow: none;
-   text-shadow: none;
-   border: 0;
-   background: none;
- }
- 
- #workspaces button:hover * {
-   color: @mauve;
-   background-color: @base;
- }
- 
- #workspaces * {
-   color: whitesmoke;
- }
- 
- #workspaces button.focused {
-   color: @mauve;
-   border-radius: 20px;
- }
- 
- #workspaces button.focused * {
-   color: @mauve;
- }
- 
- /* -----------------------------------------------------------------------------
+#workspaces {
+  margin: 0 8px;
+  border-style: solid;
+  opacity: 1;
+  border-radius: 10px;
+}
+
+#workspaces button {
+  color: whitesmoke;
+}
+
+#workspaces button.active {
+  background-color: @lavender;
+  color: @base;
+  padding: 2px;
+}
+
+/* -----------------------------------------------------------------------------
   * Module Styles
   * -------------------------------------------------------------------------- */
- 
- /* General module styles */
- #clock,
- #custom-swap,
- #custom-cava-internal,
- #battery,
- #cpu,
- #memory,
- #disk,
- #idle_inhibitor,
- #temperature,
- #custom-keyboard-layout,
- #backlight,
- #network,
- #pulseaudio,
- #mode,
- #tray,
- #custom-power,
- #custom-pacman,
- #custom-launcher,
- #mpd {
-   padding: 5px 10px;
-   border-style: solid;
-   opacity: 1;
-   margin: 0 2px;
-   border-radius: 10px;
- }
- 
- /* Specific module styles */
- #mpd {
-   color: @mauve;
-   margin-left: 5px;
-   background-color: rgba(0, 0, 0, 0);
- }
- 
- #mpd.2, #mpd.3, #mpd.4 {
-   background-color: @base;
-   font-size: 14px;
-   border-radius: 0;
-   margin: 8px 0;
-   padding: 4px;
- }
- 
- #mpd.2 {
-   border-radius: 10px 0 0 10px;
-   padding-left: 10px;
- }
- 
- #mpd.4 {
-   border-radius: 0 10px 10px 0;
-   padding-right: 14px;
- }
- 
- #mode {
-   color: @mauve;
-   margin-right: 5px;
- }
- 
- #clock {
-   margin: 0;
-   margin-right: 8px;
-   font-weight: bold;
- }
- 
- #backlight {
-   color: @yellow;
- }
- 
- #battery {
-   color: #d8dee9;
- }
- 
- #battery.charging {
-   color: #81a1c1;
- }
- 
- @keyframes blink {
-   to {
-     color: @red;
-   }
- }
- 
- #battery.critical:not(.charging) {
-   color: #bf616a;
-   animation: blink 0.5s linear infinite alternate;
- }
- 
- #cpu, #cpu-icon, #memory, #disk {
-   color: @sky;
- }
- 
- #network {
-   color: @green;
-   margin-right: 5px;
- }
- 
- #network.disabled, #network.disconnected {
-   color: #bf616a;
- }
- 
- #pulseaudio {
-   color: @flamingo;
- }
- 
- #pulseaudio.muted {
-   color: #3b4252;
- }
- 
- #temperature {
-   color: @teal;
- }
- 
- #temperature.critical {
-   color: @red;
- }
- 
- #idle_inhibitor {
-   background-color: #ebcb8b;
-   color: @base;
- }
- 
- #tray {
-   margin: 0;
-   background-color: rgba(0, 0, 0, 0);
- }
- 
- #window {
-   border-style: hidden;
-   margin: 0 10px;
-   color: #eceff4;
- }
- 
+
+/* General module styles */
+#clock,
+#custom-swap,
+#custom-cava-internal,
+#battery,
+#cpu,
+#memory,
+#disk,
+#idle_inhibitor,
+#temperature,
+#custom-keyboard-layout,
+#backlight,
+#network,
+#pulseaudio,
+#mode,
+#tray,
+#custom-power,
+#custom-pacman,
+#custom-launcher,
+#mpd {
+  padding: 5px 10px;
+  border-style: solid;
+  opacity: 1;
+  margin: 0 2px;
+  border-radius: 10px;
+}
+
+/* Specific module styles */
+#mpd {
+  color: @mauve;
+  margin-left: 5px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#mpd.2,
+#mpd.3,
+#mpd.4 {
+  background-color: @base;
+  font-size: 14px;
+  border-radius: 0;
+  margin: 8px 0;
+  padding: 4px;
+}
+
+#mpd.2 {
+  border-radius: 10px 0 0 10px;
+  padding-left: 10px;
+}
+
+#mpd.4 {
+  border-radius: 0 10px 10px 0;
+  padding-right: 14px;
+}
+
+#mode {
+  color: @mauve;
+  margin-right: 5px;
+}
+
+#clock {
+  margin: 0;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#battery {
+  color: #d8dee9;
+}
+
+#battery.charging {
+  color: #81a1c1;
+}
+
+@keyframes blink {
+  to {
+    color: @red;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #bf616a;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+#cpu,
+#cpu-icon,
+#memory,
+#disk {
+  color: @sky;
+}
+
+#network {
+  color: @green;
+  margin-right: 5px;
+}
+
+#network.disabled,
+#network.disconnected {
+  color: #bf616a;
+}
+
+#pulseaudio {
+  color: @flamingo;
+}
+
+#pulseaudio.muted {
+  color: #3b4252;
+}
+
+#temperature {
+  color: @teal;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#idle_inhibitor {
+  background-color: #ebcb8b;
+  color: @base;
+}
+
+#tray {
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#window {
+  border-style: hidden;
+  margin: 0 10px;
+  color: #eceff4;
+}
