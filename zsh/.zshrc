@@ -12,6 +12,8 @@ zstyle :compinstall filename '~/.zshrc'
 # TODO: add path for Linux systems
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+elif [[ "$OSTYPE" == "linux"* ]]; then
+  source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh # path from Arch AUR package
 fi
 
 # Add brew to PATH on macOS
