@@ -22,7 +22,7 @@
   padding: 0;
   margin: 0;
   font-family: JetBrains Mono Nerd Font, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 window#waybar {
@@ -75,40 +75,14 @@ window#waybar {
 #custom-pacman,
 #custom-launcher,
 #mpd {
-  padding: 5px 10px;
+  padding: 0px 4px;
   border-style: solid;
   opacity: 1;
   margin: 0 2px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 /* Specific module styles */
-#mpd {
-  color: @mauve;
-  margin-left: 5px;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-#mpd.2,
-#mpd.3,
-#mpd.4 {
-  background-color: @base;
-  font-size: 14px;
-  border-radius: 0;
-  margin: 8px 0;
-  padding: 4px;
-}
-
-#mpd.2 {
-  border-radius: 10px 0 0 10px;
-  padding-left: 10px;
-}
-
-#mpd.4 {
-  border-radius: 0 10px 10px 0;
-  padding-right: 14px;
-}
-
 #mode {
   color: @mauve;
   margin-right: 5px;
@@ -117,11 +91,7 @@ window#waybar {
 #clock {
   margin: 0;
   margin-right: 8px;
-  font-weight: bold;
-}
-
-#backlight {
-  color: @yellow;
+  font-weight: 700;
 }
 
 #battery {
@@ -129,7 +99,8 @@ window#waybar {
 }
 
 #battery.charging {
-  color: #81a1c1;
+  background-color: #81a1c1;
+  color: @base;
 }
 
 @keyframes blink {
@@ -143,42 +114,12 @@ window#waybar {
   animation: blink 0.5s linear infinite alternate;
 }
 
-#cpu,
-#cpu-icon,
-#memory,
-#disk {
-  color: @sky;
-}
-
-#network {
-  color: @green;
-  margin-right: 5px;
-}
-
-#network.disabled,
-#network.disconnected {
-  color: #bf616a;
-}
-
-#pulseaudio {
-  color: @flamingo;
-}
-
 #pulseaudio.muted {
-  color: #3b4252;
-}
-
-#temperature {
-  color: @teal;
+  color: #b5bbca;
 }
 
 #temperature.critical {
   color: @red;
-}
-
-#idle_inhibitor {
-  background-color: #ebcb8b;
-  color: @base;
 }
 
 #tray {
