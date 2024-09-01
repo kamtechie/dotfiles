@@ -95,22 +95,23 @@ window#waybar {
 
 #battery {
   color: #d8dee9;
+  padding-right: 10px; /* prevent text overlapping background when flashing */
 }
 
 #battery.charging {
-  background-color: #81a1c1;
-  color: @base;
+  background-color: @lavender;
+  color: whitesmoke;
 }
 
 @keyframes blink {
   to {
-    color: @red;
+    background-color: @red;
+    color: @base;
   }
 }
 
 #battery.critical:not(.charging) {
-  color: #bf616a;
-  animation: blink 0.5s linear infinite alternate;
+  animation: blink 1s linear infinite alternate;
 }
 
 #pulseaudio.muted {
