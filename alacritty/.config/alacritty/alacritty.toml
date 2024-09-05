@@ -1,4 +1,10 @@
 live_config_reload = true
-import = [
-    "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
-]
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 11.0
+
+[colors]
+[colors.primary]
+  background = '0x121212'
+  foreground = '0xD4D4D4'
