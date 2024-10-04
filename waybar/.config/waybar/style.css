@@ -29,6 +29,7 @@ window#waybar {
   border: 0;
   background-color: rgba(0, 0, 0, 0);
   color: @lavender;
+  font-weight: 800;
 }
 
 /* -----------------------------------------------------------------------------
@@ -90,7 +91,6 @@ window#waybar {
 #clock {
   margin: 0;
   margin-right: 8px;
-  font-weight: 700;
 }
 
 #battery {
@@ -100,7 +100,7 @@ window#waybar {
 
 #battery.charging {
   background-color: @lavender;
-  color: whitesmoke;
+  color: @base;
 }
 
 @keyframes blink {
