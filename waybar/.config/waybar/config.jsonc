@@ -63,7 +63,8 @@
     "format": "{used}GB ({percentage}%) "
   },
   "disk": {
-    "format": "{percentage_used}% "
+    "format": "{percentage_used}% ",
+    "path": "/home",
   },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
