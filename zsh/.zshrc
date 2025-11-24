@@ -1,19 +1,37 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
 
-source ~/.config/zsh/key-bindings.zsh
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '~/.zshrc'
-
-# Load zsh-autocomplete on macOS
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-elif [[ "$OSTYPE" == "linux"* ]]; then
-  source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh # path from Arch AUR package
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+
+setopt correct               # autocorrect minor dir typos
+setopt histignorealldups     # no duplicate history
+setopt share_history         # share history between shells
+setopt extended_glob         # advanced globbing
+setopt interactivecomments   # allow comments in interactive shell
+
+# History size
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE=~/.zsh_history
 
 # Add brew to PATH on macOS
 # This needs to be done now since Starship on Mac is installed via Homebrew
@@ -21,22 +39,26 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH=/opt/homebrew/bin:$PATH
 fi
 
-# End of lines added by compinstall
+# Starship prompt
 eval "$(starship init zsh)"
 
-# Conditionally add pipx to PATH if it is installed
-if command -v pipx &> /dev/null; then
-  export PATH="$PATH:~/.local/bin"
-fi
+########################################
+# Plugins
+########################################
 
-# Conditionally load nvm if it is installed
-# NOTE: this assumes you use the install script from the GitHub
-export NVM_DIR="$HOME/.nvm"
+# Fast syntax highlighting (better than zsh-users)
+zinit light zdharma-continuum/fast-syntax-highlighting
 
-if [ -d "$NVM_DIR" ]; then
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+# Autosuggestions (fish-like)
+zinit light zsh-users/zsh-autosuggestions
+
+# Autocomplete 
+zinit light marlonrichert/zsh-autocomplete
+
+# Completions (massive completion set)
+zinit light zsh-users/zsh-completions
+
+# NVM (lazy-loaded, fast)
+zinit ice depth=1
+zinit light lukechilds/zsh-nvm
+export NVM_AUTO_USE=true
