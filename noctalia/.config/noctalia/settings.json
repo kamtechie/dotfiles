@@ -580,7 +580,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/kamtechie/dotfiles/hypr/.config/hypr/wallpapers",
+        "directory": "/home/kamtechie/dotfiles/wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
