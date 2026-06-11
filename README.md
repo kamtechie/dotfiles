@@ -30,7 +30,7 @@ dotfiles/
 ├── chrome-electron-flags/   # Wayland/VA-API flags for Brave, Chrome, Electron, VS Code
 ├── ghostty/                 # Ghostty terminal config
 ├── gtk-3.0/                 # GTK3 dark theme settings
-├── hypr/                    # Hyprland config (hyprland.conf, workspaces.conf)
+├── hypr/                    # Hyprland config (hyprland.lua)
 ├── kitty/                   # Kitty terminal config
 ├── noctalia/                # Noctalia shell UI (bar, launcher, settings, colors)
 ├── qt5ct/                   # qt5ct theming (Catppuccin Mocha)
@@ -40,7 +40,7 @@ dotfiles/
 └── zsh/                     # .zshrc
 ```
 
-> **Note:** `hypr/.config/hypr/monitors.conf` is gitignored — it is machine-specific. Create your own based on `hyprland.conf`'s `source` directive.
+> **Note:** Hyprland 0.55 uses `hypr/.config/hypr/hyprland.lua`. Machine-specific monitor rules live in ignored `hypr/.config/hypr/monitors.lua`.
 
 ## Installation
 
@@ -78,24 +78,17 @@ stow zsh
 
 Stow will create symlinks from `~/.config/...` (and `~/.zshrc`) pointing into this repo.
 
-### monitors.conf
+### Monitor Configuration
 
-Hyprland sources `~/.config/hypr/monitors.conf` for display configuration. This file is gitignored since it is machine-specific.
+Hyprland 0.55 configures displays with `hl.monitor({ ... })`. This repo safely loads `~/.config/hypr/monitors.lua` from `hyprland.lua` and falls back to automatic placement if the file is missing.
 
-The easiest way to generate it is with [nwg-displays](https://github.com/nwg-piotr/nwg-displays), a GUI tool that writes Hyprland monitor config for you:
+`monitors.lua` is gitignored because it is machine-specific. Example:
 
-```bash
-nwg-displays
+```lua
+hl.monitor({ output = "DP-1", mode = "2560x1440@59.95", position = "0x0", scale = 1.0 })
 ```
 
-Alternatively, write it manually:
-
-```bash
-# Example
-echo "monitor=DP-1,1920x1080@144,0x0,1" > ~/.config/hypr/monitors.conf
-```
-
-See the [Hyprland monitors docs](https://wiki.hyprland.org/Configuring/Monitors/) for syntax.
+See the [Hyprland monitor docs](https://wiki.hypr.land/Configuring/Basics/Monitors/) for the Lua syntax.
 
 ## Zsh Plugins
 
