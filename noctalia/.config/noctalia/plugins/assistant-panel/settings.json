@@ -7,17 +7,17 @@
   "scale": 1,
   "ai": {
     "provider": "openai_compatible",
-    "model": "gemini-3-flash",
+    "model": "linux-desktop",
     "apiKeys": {
-      "openai_compatible": "dummy"
+      "openai_compatible": "395c41d50158df6c546d485d982c28507ba0a9a730cca2307bcd48f0f6398c0d"
     },
     "temperature": 0.7,
-    "systemPrompt": "You are a helpful assistant integrated into a Linux desktop shell. Be concise and helpful.",
+    "systemPrompt": "",
     "maxHistoryLength": 100,
     "openaiLocal": false,
-    "openaiBaseUrl": "http://192.168.1.251:4000/v1/chat/completions",
+    "openaiBaseUrl": "http://hermes-agent.mynet:8642/v1/chat/completions",
     "models": {
-      "openai_compatible": "gemini-3-flash"
+      "openai_compatible": "linux-desktop"
     }
   },
   "translator": {

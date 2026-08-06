@@ -65,3 +65,8 @@ export NVM_AUTO_USE=true
 # Created by `pipx` on 2025-11-26 12:51:25
 export PATH="$PATH:/home/kamtechie/dotfiles/powermenu/.local/bin"
 export PIPX_BIN_DIR="$HOME/.local/bin"
+
+# opencode
+export PATH=/home/kamtechie/.opencode/bin:$PATH
+
+. "$HOME/.local/share/../bin/env"
