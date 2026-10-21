@@ -12,7 +12,7 @@ end
 --- MY PROGRAMS ---
 -------------------
 
-local ipc = "qs -c noctalia-shell ipc call"
+local ipc = "noctalia msg "
 
 local terminal = "kitty"
 local fileManager = "nautilus"
@@ -30,7 +30,7 @@ local lockcmd = "hyprlock"
 -----------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("qs -c noctalia-shell --no-duplicate")
+    hl.exec_cmd("noctalia")
     hl.exec_cmd("/usr/lib/mate-polkit/polkit-mate-authentication-agent-1")
 
     -- Clipboard manager
@@ -153,9 +153,12 @@ hl.gesture({ fingers = 4, direction = "horizontal", action = "workspace" })
 local mainMod = "SUPER"
 
 -- Menu
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(ipc .. " plugin:assistant-panel toggle"))
-hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. " settings toggle"))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. "settings-open"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(ipc .. "panel-toggle alexander/mimir:chat"))
+
+-- Window switcher
+hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher"))
 
 -- Terminal
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
@@ -216,33 +219,31 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Multimedia keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. " volume increase"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. " volume decrease"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. " volume muteOutput"), { locked = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. " brightness increase"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. " brightness decrease"), { locked = true, repeating = true })
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. " media next"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. " media previous"))
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. " media playPause"))
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(ipc .. "volume-down"))
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(ipc .. "volume-mute"))
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"))
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. "media next"))
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media previous"))
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media toggle"))
 
 -- Application shortcuts
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(browserIncognito))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(code))
-hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("notion-app"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("obsidian"))
 
 -- Screenshots
-hl.bind("Print", hl.dsp.exec_cmd('grim - | wl-copy && notify-send "Full screen captured"'))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy && notify-send "Region captured"'))
+hl.bind("Print", hl.dsp.exec_cmd('grim - | wl-copy && noctalia msg notification-show "Full screen captured"'))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy && noctalia msg notification-show "Region captured"'))
 
 
 ------------------------------
 --- WINDOWS AND WORKSPACES ---
 ------------------------------
 
-hl.window_rule({ match = { class = "blueman-manager" }, float = true })
-hl.window_rule({ match = { class = "org.kde.kmix" }, float = true })
 hl.window_rule({ match = { class = ".*" }, suppress_event = "maximize" })
 
 -- No gaps when only one window
