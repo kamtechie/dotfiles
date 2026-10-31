@@ -99,3 +99,14 @@ fi
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/angular-completion.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/angular-completion.zsh"
 fi
+
+# Tab accepts a visible autosuggestion; otherwise use standard Zsh completion.
+_tab_accept_or_complete() {
+    if [[ -n "$POSTDISPLAY" ]] && (( $+widgets[autosuggest-accept] )); then
+        zle autosuggest-accept
+    else
+        zle expand-or-complete
+    fi
+}
+zle -N _tab_accept_or_complete
+bindkey '^I' _tab_accept_or_complete
