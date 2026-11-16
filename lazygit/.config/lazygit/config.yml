@@ -1,0 +1,19 @@
+# Catppuccin Mocha-inspired colours, matching tmux.
+gui:
+  sidePanelWidth: 0.25
+  expandFocusedSidePanel: true
+  showNumstatInFilesView: true
+  filterMode: fuzzy
+  theme:
+    activeBorderColor: ['#cba6f7', bold]
+    inactiveBorderColor: ['#6c7086']
+    searchingActiveBorderColor: ['#f9e2af']
+    optionsTextColor: ['#89b4fa']
+    selectedLineBgColor: ['#313244']
+    unstagedChangesColor: ['#f38ba8']
+    defaultFgColor: ['#cdd6f4']
+
+# Syntax-highlighted diffs without an interactive pager.
+git:
+  diffRenderers:
+    - command: delta --dark --paging=never

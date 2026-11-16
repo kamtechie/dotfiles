@@ -1,0 +1,57 @@
+# Portable Noctalia v5 configuration.
+# Machine-specific monitor layouts, wallpaper paths, and secrets stay in local state.
+
+[bar.default]
+background_opacity = 0.8
+center = ["clock", "bar"]
+end = [
+  "tray",
+  "cpu",
+  "ram",
+  "temp",
+  "notifications",
+  "network",
+  "bluetooth",
+  "volume",
+  "brightness",
+  "battery",
+  "widget",
+]
+margin_ends = 0
+padding = 12
+radius = 0
+start = ["session", "workspaces", "media"]
+
+[location]
+address = "Manchester, GB"
+
+[plugins]
+enabled = [
+  "noctalia/world_clock",
+  "yuuto/arch-updater",
+  "alexander/mimir",
+  "cleboost/ssh-launcher",
+  "icefish/phone-connect",
+]
+
+[shell]
+font_family = "Inter"
+telemetry_enabled = true
+
+[theme]
+community_palette = "Catppuccin Mocha Lavender"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+
+[widget.bar]
+type = "noctalia/world_clock:bar"
+
+[widget.network]
+show_label = false
+
+[widget.volume]
+show_label = false
+
+[widget.widget]
+type = "yuuto/arch-updater:widget"

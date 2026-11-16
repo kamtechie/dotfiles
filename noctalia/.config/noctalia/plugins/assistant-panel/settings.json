@@ -1,0 +1,31 @@
+{
+  "maxHistoryLength": 100,
+  "panelDetached": true,
+  "panelPosition": "right",
+  "panelHeightRatio": 0.85,
+  "panelWidth": 520,
+  "scale": 1,
+  "ai": {
+    "provider": "openai_compatible",
+    "model": "linux-desktop",
+    "apiKeys": {
+      "openai_compatible": "395c41d50158df6c546d485d982c28507ba0a9a730cca2307bcd48f0f6398c0d"
+    },
+    "temperature": 0.7,
+    "systemPrompt": "",
+    "maxHistoryLength": 100,
+    "openaiLocal": false,
+    "openaiBaseUrl": "http://hermes-agent.mynet:8642/v1/chat/completions",
+    "models": {
+      "openai_compatible": "linux-desktop"
+    }
+  },
+  "translator": {
+    "backend": "google",
+    "sourceLanguage": "auto",
+    "targetLanguage": "en",
+    "realTimeTranslation": true,
+    "deeplApiKey": ""
+  },
+  "attachmentStyle": "connected"
+}
