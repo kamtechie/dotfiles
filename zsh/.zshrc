@@ -73,7 +73,7 @@ if (( $+commands[fzf] )); then
 fi
 
 if (( $+commands[zoxide] )); then
-    eval "$(zoxide init zsh)"
+    eval "$(zoxide init zsh --cmd cd)"
 fi
 
 # Generate Angular completion once, then source the cache without launching Node.
@@ -97,6 +97,8 @@ if [[ ! -r "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/angular-completion.zsh" ]]; then
     update-angular-completion
 fi
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/angular-completion.zsh" ]]; then
+    autoload -Uz compinit
+    compinit
     source "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/angular-completion.zsh"
 fi
 
